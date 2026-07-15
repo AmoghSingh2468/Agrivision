@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriVision - Plant Disease Detection</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🌱</span>
+                <span class="logo-text">AgriVision</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="upload-section">
+            <h1 class="main-title">Upload or Capture a Plant Leaf Image</h1>
+            
+            <div class="upload-container">
+                <input type="file" id="imageInput" accept="image/*" hidden>
+                <label for="imageInput" class="file-label">Choose File</label>
+                <span id="fileName" class="file-name">No file chosen</span>
+                <button id="analyzeBtn" class="analyze-btn" disabled>Analyze Image</button>
+            </div>
+
+            <div id="loadingSpinner" class="spinner" style="display: none;">
+                <div class="spinner-circle"></div>
+                <p>Analyzing image...</p>
+            </div>
+        </section>
+
+        <section id="resultsSection" class="results-section" style="display: none;">
+            <div class="prediction-card">
+                <h2 id="diseaseName" class="disease-name"></h2>
+                <p id="confidence" class="confidence"></p>
+            </div>
+
+            <div class="images-grid">
+                <div class="image-card">
+                    <h3>Uploaded Image</h3>
+                    <img id="uploadedImage" src="" alt="Uploaded Leaf">
+                </div>
+                <div class="image-card">
+                    <h3>Model Focus Visualization (Grad-CAM)</h3>
+                    <img id="gradcamImage" src="" alt="Grad-CAM">
+                </div>
+            </div>
+
+            <div class="severity-section">
+                <h3>Disease Severity</h3>
+                <div class="severity-bar-container">
+                    <div id="severityBar" class="severity-bar" style="width: 0%"></div>
+                </div>
+                <p id="severityText" class="severity-text">0% (Healthy)</p>
+            </div>
+
+            <div class="info-section">
+                <h3 class="section-title">Treatment & Prevention</h3>
+                
+                <div class="info-grid">
+                    <div class="info-card treatment-card">
+                        <h4> Treatment:</h4>
+                        <ul id="treatmentList"></ul>
+                    </div>
+                    
+                    <div class="info-card prevention-card">
+                        <h4> Prevention:</h4>
+                        <ul id="preventionList"></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 AgriVision. Plant Disease Detection System.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
