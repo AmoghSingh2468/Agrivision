@@ -56,10 +56,11 @@ body {
     font-size: 2rem;
 }
 
-.nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
+.nav-menu{
+    display:flex;
+    list-style:none;
+    gap:2rem;
+    align-items:center;
 }
 
 .nav-link {
@@ -340,21 +341,101 @@ body {
 }
 
 /* Responsive Design */
+/* ==========================
+   Mobile Responsive Design
+========================== */
 @media (max-width: 768px) {
-    .nav-menu {
-        gap: 1rem;
+
+    body{
+        overflow-x:hidden;
     }
-    
-    .upload-container {
-        flex-direction: column;
+
+    .container{
+        width:100%;
+        padding:0 15px;
+        margin:20px auto;
     }
-    
+
+    /* Navbar */
+
+    .nav-container{
+        flex-direction:column;
+        gap:15px;
+        padding:0 15px;
+    }
+
+    .logo{
+        font-size:2rem;
+    }
+
+    .nav-menu{
+        width:100%;
+        justify-content:center;
+        flex-wrap:wrap;
+        gap:10px;
+    }
+
+    .nav-link{
+        padding:8px 14px;
+    }
+
+    /* Upload Section */
+
+    .upload-section{
+        padding:25px 15px;
+    }
+
+    .main-title{
+        font-size:1.8rem;
+        line-height:1.3;
+    }
+
+    .upload-container{
+        flex-direction:column;
+        gap:18px;
+    }
+
+    .file-label,
+    .analyze-btn{
+        width:100%;
+        max-width:280px;
+    }
+
+    .file-name{
+        text-align:center;
+        word-break:break-word;
+    }
+
+    /* Results */
+
+    .prediction-card,
+    .severity-section,
+    .info-section,
+    .image-card{
+        padding:20px;
+    }
+
     .images-grid,
-    .info-grid {
-        grid-template-columns: 1fr;
+    .info-grid{
+        grid-template-columns:1fr;
+        gap:20px;
     }
-    
-    .main-title {
-        font-size: 1.4rem;
+
+    .image-card img{
+        width:100%;
+        height:auto;
+    }
+
+    .disease-name{
+        font-size:1.5rem;
+    }
+
+    .section-title{
+        font-size:1.3rem;
+    }
+
+    .footer{
+        padding:20px 15px;
+        font-size:15px;
     }
 }
