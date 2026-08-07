@@ -1,15 +1,12 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "app.py",
-      "use": "@vercel/python"
+  "outputDirectory": "public",
+  "functions": {
+    "api/index.py": {
+      "maxDuration": 60,
+      "includeFiles": "api/models/**"
     }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "app.py"
-    }
+  },
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/index" }
   ]
 }
